@@ -1,0 +1,12 @@
+commentaire_homepage:
+    path:     /
+    defaults: { _controller: CommentaireBundle:Default:index }
+create:
+    path:     /Commenter
+    defaults: { _controller: CommentaireBundle:Commentaire:create }
+delete:
+    path:     /SuppComm/{id}
+    defaults: { _controller: CommentaireBundle:Commentaire:delete }
+lecture:
+    path:     /lecture
+    defaults: { _controller: CommentaireBundle:Commentaire:read }

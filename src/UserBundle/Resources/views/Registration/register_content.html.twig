@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<section class="inner-intro bg bg-fixed bg-overlay-black-60" style="background-image:url({{ asset('images/bg/inner-bg-1.jpg') }});">
+    <div class="container">
+        <div class="row intro-title text-center">
+            <div class="col-sm-12">
+                <div class="section-title"><h1 class="pos-r divider">register 1<span class="sub-title">register 1</span></h1></div>
+            </div>
+            <div class="col-sm-12 mt-70">
+                <ul class="page-breadcrumb">
+                    <li><a href="index-default.html"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
+                    <li><a href="register.html">Pages</a> <i class="fa fa-angle-double-right"></i></li>
+                    <li><span>register 1</span> </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="login-form login-img dark-bg page-section-ptb100 pb-70" style="background: url({{ asset('images/pattern/04.png') }}) no-repeat 0 0; background-size: cover;">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="login-1-form register-1-form clearfix text-center">
+                    <h4 class="title divider-3 text-white mb-30">Inscription</h4>
+
+                    <div >
+
+                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'field-widget'}}) }}
+
+
+    {{ form_widget(form) }}
+
+
+                    </div>
+
+    <div class="section-field text-uppercase text-center mt-20">
+        <input type="submit" value="{{ 'registration.submit'|trans }}" class="button  btn-lg btn-theme full-rounded animated right-icn" />
+    </div>
+{{ form_end(form) }}
+    </div>
+            </div>
+        </div></div>
+</section>

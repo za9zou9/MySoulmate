@@ -1,0 +1,6 @@
+page_homepage:
+    path:     /indexStory
+    defaults: { _controller: PageBundle:Default:index }
+create:
+    path:     /create
+    defaults: { _controller: PageBundle:page:create }

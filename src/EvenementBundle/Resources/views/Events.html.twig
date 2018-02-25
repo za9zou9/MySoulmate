@@ -1,0 +1,273 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsJhnOrfzeWgncdNQzVE9oHdCCkftJntY">
+    </script>
+    <script type="text/javascript">
+        var MyCenter=new google.maps.LatLng(25,66);
+        var MyCenter1=new google.maps.LatLng(25,70);
+        var input=document.getElementById('rec');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        function initialize() {
+            var mapOptions = {
+                center: MyCenter,
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+                mapOptions);
+
+            var marker=new google.maps.Marker({
+                position: MyCenter,
+                animation: google.maps.Animation.BOUNCE
+
+            });
+            var marker1=new google.maps.Marker({
+                position: MyCenter1,
+                animation: google.maps.Animation.BOUNCE
+
+            });
+            marker.setMap(map);
+            marker1.setMap(map);
+
+        }
+        google.maps.event.addDomListener(window,'load',initialize);
+    </script>
+
+
+
+    <body onload="initialize()">
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+    <div id="map_canvas" style="width:35%; height:35%"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="form-1 ptb-20">
+        <div class="container">
+
+            <form id="form_recherche" method="POST">
+                <div class="col-sm-3" >
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12 control-label text-white">Lieu</label>
+                        <div class="col-md-8 col-sm-12">
+                            <input name="lieu" id="lieu" type="text" >
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="banner-form">
+                    <form href="{{ path('read') }}">
+
+
+
+
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-7 col-xs-6">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-7 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-12 control-label text-white">Date</label>
+                                        <div class="col-md-10 col-sm-12">
+                                           <input name="date" value="date" type="date" id="date">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </div>
+                            </div>
+
+
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    {% for liste in listes %}
+
+    <section class="page-section-ptb pb-30 xs-pb-60 story-slider"><div class="container" id="f" >
+            <section class="row mb-50 xs-mb-30">
+                <div class="col-lg-4 col-md-4 col-sm-6 xs-mb-30">
+                    <div class="story-item">
+                        <div class="story-details text-center">
+                            <div class="about-des mt-30"><img src="{{ asset('images/') }}{{ liste.image }}" width="300" height="200"></div>
+                            <h5 class="title divider-3">{{ liste.lieu }}</h5>
+                            <div class="about-des mt-30">{{ liste.date|date('Y-m-d') }}</div>
+                            <div class="about-des mt-30">{{ liste.description }}</div>
+                            <div class="about-des mt-30"><a  href="{{ path('confirmer',{'idevenement':liste.idevenement}) }}" >Participer</a></div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            {% endfor %}
+
+
+
+
+
+
+
+            <!-- jquery  -->
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+
+    <!-- bootstrap -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+
+    <!-- appear -->
+    <script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script>
+
+    <!-- Menu -->
+    <script type="text/javascript" src="{{ asset('js/mega-menu/mega_menu.js') }}"></script>
+
+    <!-- owl-carousel -->
+    <script type="text/javascript" src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
+
+    <!-- counter -->
+    <script type="text/javascript" src="{{ asset('js/counter/jquery.countTo.js') }}"></script>
+
+    <!-- Magnific Popup -->
+    <script type="text/javascript" src="{{ asset('js/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+    <!-- style customizer  -->
+    <script type="text/javascript" src="{{ asset('js/style-customizer.js') }}"></script>
+
+    <!-- custom -->
+    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+
+
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+
+
+
+
+
+
+
+
+
+
+    <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+    <!-- JQuery -->
+
+
+
+
+
+
+
+    <script>
+        $("#lieu").keyup(function () {
+            // récuperation de valeur
+            var input=$("#lieu").val();
+            //requete
+            $.ajax({
+                url:"{{ path('read') }}",
+                type: "POST",
+                data:{'lieu':input },
+                success:function (data) {
+                    $("#f").html("<section class='page-section-ptb pb-30 xs-pb-60 story-slider'><div class='container' id='res'>"+
+                    "<section class='row mb-50 xs-mb-30'>"+
+                    " <div class='col-lg-4 col-md-4 col-sm-6 xs-mb-30'>"+
+                    "<div class='story-item'>"+
+                        "<div class='story-details text-center'>"+
+                    "<h5 ></h5>"+
+                    "<div class='about-des mt-30'></div>"+
+                    "<div class='about-des mt-30'></div>"+
+                        "<div class='about-des mt-30'>"+
+                    "<a></a>"+
+                    "</div>"+
+                        "</div>"+
+                    "</div>"+
+                    "</div>"+
+                    "</div>"+
+                        "</section>"+
+                    "</section>");
+
+                    $.each(data,function (res,el) {
+                        $("#f").hide();
+                        $("#res").append(
+                            "<section class='page-section-ptb pb-30 xs-pb-60 story-slider'><div class='container' id='res'>"+
+                            "<section class='row mb-50 xs-mb-30'>"+
+                            " <div class='col-lg-4 col-md-4 col-sm-6 xs-mb-30'>"+
+                            "<div class='story-item'>"+
+                            "<div class='story-details text-center'>"+
+                            "<h5 >+el.lieu+</h5>"+
+                            "<div class='about-des mt-30'>+el.date|date('Y-m-d')+</div>"+
+                            "<div class='about-des mt-30'>+el.description+</div>"+
+                            "<div class='about-des mt-30'>"+
+                            "<a></a>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                             "</section>"+
+                            "</section>");
+                    })
+                    console.log(data);}});
+        });
+    </script>
+            <div class="navigation text-center">
+                {{ knp_pagination_render(listes) }}
+            </div>
+
+
+{% endblock %}

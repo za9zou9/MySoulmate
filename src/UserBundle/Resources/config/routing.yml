@@ -1,0 +1,12 @@
+user_homepage:
+    path:     /index
+    defaults: { _controller: UserBundle:Default:index }
+inscri:
+    path:     /inscri
+    defaults: { _controller: UserBundle:front:signUp }
+
+
+quiz:
+    path:     /ajoutQuiz
+    defaults: { _controller: UserBundle:quiz:ajouterQuiz }
+

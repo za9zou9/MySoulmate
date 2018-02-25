@@ -1,0 +1,32 @@
+evenement_homepage:
+    path:     /
+    defaults: { _controller: EvenementBundle:Default:index }
+read:
+    path:     /lstevents
+    defaults: { _controller: EvenementBundle:Events:read }
+participe:
+    path:     /participer/{idevenement}
+    defaults: { _controller: EvenementBundle:Events:participer }
+cre:
+    path:     /ajoutAdm
+    defaults: { _controller: EvenementBundle:Events:cre }
+consulter:
+    path:     /consulterAdm/{idevenement}
+    defaults: { _controller: EvenementBundle:Events:update }
+reade:
+    path:     /lsteventsAdm
+    defaults: { _controller: EvenementBundle:Events:reade }
+deletee:
+    path:     /suppAdm/{idevenement}
+    defaults: { _controller: EvenementBundle:Events:delete }
+confirmer:
+    path:     /confirmer/{idevenement}
+    defaults: { _controller: EvenementBundle:Events:confirmer }
+participants:
+    path:     /participants/{idevenement}
+    defaults: { _controller: EvenementBundle:Events:readee }
+
+
+
+
+
