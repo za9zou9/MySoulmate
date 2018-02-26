@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">html, body,#map-canvas {height: 100%;margin: 0;padding: 0;}</style>
+
+    <title>{% block title %}FreeMinds
+
+
+        {% endblock %}</title>
+
+
+
+    {% block stylesheets %}
+
+
+        <link rel="icon" href="{{ asset('images1/favicon.ico') }}" type="image/x-icon">
+
+        <!-- Library CSS -->
+        <link href="{{ asset('css1/glanz_library.css') }}" rel="stylesheet">
+
+        <!-- Icons CSS -->
+        <link href="{{ asset('fonts1/themify-icons.css') }}" rel="stylesheet">
+
+        <!-- Theme CSS -->
+        <link href="{{ asset('css1/glanz_style.css') }}" rel="stylesheet">
+
+        <!-- Google font1/s -->
+        <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700%7COpen+Sans:300,400,700%7CPlayfair+Display:400,400i,700,700i" rel="stylesheet">
+
+        <!-- Other font1/s -->
+        <link href="{{ asset('fonts1/marsha/stylesheet.css') }}" rel="stylesheet">
+
+
+
+    {% endblock %}
+
+
+
+
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+{% block body %}
+
+
+
+
+{% endblock %}
+
+
+{% block container %}
+
+{% endblock %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDElLlwgcP38R0KBO9jGW7uZfBrPMzyuso"
+        type="text/javascript"></script>
+<script>
+
+    var longe = $("#long").val();
+    var latt = $("#lat").val();
+
+    var myCenter =new google.maps.LatLng(longe,latt);
+    var marker;
+    function initialize() {
+        var mapProp= {
+            center: myCenter,
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        /*  var mapOptions = {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 8
+          };*/
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapProp);
+        var marker = new google.maps.Marker({
+            position: myCenter,
+            animation: google.maps.Animation.BOUNCE
+        });
+        marker.setMap(map);
+        /* var myLating = new google.maps.LatLng(-25.363882, 131.044922);
+          var mapOptions = {
+              zoom: 4,
+              center: myLating
+          }
+         var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+ */
+    }
+    google.maps.event.addDomListner(window,'load',initialize());
+</script>
+
+
+{% block javascripts %}
+
+
+    <!-- JQuery -->
+    <script src="{{ asset('js1/jquery-1.12.4.min.js') }}"></script>
+    <!-- Library JS -->
+    <script src="{{ asset('js1/glanz_library.js') }}"></script>
+
+    <!-- Theme JS -->
+    <script src="{{ asset('js1/glanz_script.js') }}"></script>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+</body>
+
+
+</html>
+
+
+
