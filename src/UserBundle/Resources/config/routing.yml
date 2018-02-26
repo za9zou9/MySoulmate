@@ -1,66 +1,12 @@
 user_homepage:
-    path:     /
+    path:     /index
     defaults: { _controller: UserBundle:Default:index }
 inscri:
     path:     /inscri
     defaults: { _controller: UserBundle:front:signUp }
 
-home2:
-    path:     /home2
-    defaults: { _controller: UserBundle:Home2:home2 }
-
-packChoix:
-        path:     /packChoix
-        defaults: { _controller: UserBundle:pack:packChoix }
-
-packChoix_pays:
-        path:     /packChoix_pays
-        defaults: { _controller: UserBundle:pack:packChoixPays }
-
-AjouterMesPack:
-        path:     /AjouterMesPack/{idPack}
-        defaults: { _controller: UserBundle:pack:ajouterMesPack }
-
-AjouterMesAmis:
-        path:     /AjouterMesAmis/{idAmiis}
-        defaults: { _controller: UserBundle:amis:ajouterMesAmis }
-
-AfficherMesPack:
-        path:     /AfficherMesPack
-        defaults: { _controller: UserBundle:pack:afficherMesPack }
-
-
-
-SupprimerMesPack:
-        path:     /SupprimerMesPack/{idPack}
-        defaults: { _controller: UserBundle:pack:Supprimer }
 
 quiz:
     path:     /ajoutQuiz
     defaults: { _controller: UserBundle:quiz:ajouterQuiz }
 
-
-profile:
-    path:     /profile
-    defaults: { _controller: UserBundle:Compatibilite:profile }
-
-
-SupprimerMesAmis:
-        path:     /SupprimerMesAmis/{id}
-        defaults: { _controller: UserBundle:amis:Supprimer }
-
-AfficherMesAmis:
-        path:     /AfficherMesAmis
-        defaults: { _controller: UserBundle:amis:afficherMesAmis }
-
-Index_Back :
-        path:     /indexBack
-        defaults: { _controller: UserBundle:back:indexBack }
-
-AjouterPack:
-        path:     /AjouterPack
-        defaults: { _controller: UserBundle:pack:AjouterPack }
-
-AfficherPack:
-        path:     /AfficherPack
-        defaults: { _controller: UserBundle:pack:AfficherPack }

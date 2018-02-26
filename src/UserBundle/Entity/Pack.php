@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Pack
  *
  * @ORM\Table(name="pack", indexes={@ORM\Index(name="idPack", columns={"idPack"})})
- * @ORM\Entity(repositoryClass="UserBundle\Repository\PackRepository")
+ * @ORM\Entity
  */
 class Pack
 {
@@ -27,124 +27,17 @@ class Pack
     private $image;
 
     /**
-     * @var integer
+     * @var \Commercant
      *
-     * @ORM\Column(name="idPack", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="Commercant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idPack", referencedColumnName="idCommercant")
+     * })
      */
     private $idpack;
 
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lat", type="string", length=100, nullable=false)
-     */
-    private $lat;
-
-
-
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lon", type="string", length=100, nullable=false)
-     */
-    private $long;
-
-
-
-    /**
-     * Set prixpack
-     *
-     * @param integer $prixpack
-     *
-     * @return Pack
-     */
-    public function setPrixpack($prixpack)
-    {
-        $this->prixpack = $prixpack;
-
-        return $this;
-    }
-
-    /**
-     * Get prixpack
-     *
-     * @return integer
-     */
-    public function getPrixpack()
-    {
-        return $this->prixpack;
-    }
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Pack
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Get idpack
-     *
-     * @return integer
-     */
-    public function getIdpack()
-    {
-        return $this->idpack;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLat()
-    {
-        return $this->lat;
-    }
-
-    /**
-     * @param string $lat
-     */
-    public function setLat($lat)
-    {
-        $this->lat = $lat;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLong()
-    {
-        return $this->long;
-    }
-
-    /**
-     * @param string $long
-     */
-    public function setLong($long)
-    {
-        $this->long = $long;
-    }
-
-
 }
+

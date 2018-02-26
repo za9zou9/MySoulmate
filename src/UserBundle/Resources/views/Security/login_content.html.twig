@@ -1,4 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base.html.twig' %}
+{% block body %}
 
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -60,9 +62,9 @@
 
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
                     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
+                    <form  method="POST"  action="{{ path('user_homepage')  }}" >
                     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="button  btn-lg btn-theme full-rounded animated right-icn" />
-
+                    </form>
                     <div class="section-field mt-20 text-center text-white">
                         <p class="lead mb-0">Don’t have an account? <a class="text-white" href="register.html"><u>Register now!</u> </a></p>
                     </div>
@@ -76,3 +78,4 @@
 </section>
 
 
+{% endblock %}
