@@ -3,69 +3,23 @@
 {% block body %}
 
 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-        html { height: 100% }
-        body { height: 100%; margin: 0; padding: 0 }
-        #map_canvas { height: 100% }
-    </style>
-    <script type="text/javascript"
-            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBsJhnOrfzeWgncdNQzVE9oHdCCkftJntY">
-    </script>
-    <script type="text/javascript">
-        var MyCenter=new google.maps.LatLng(25,66);
-        var MyCenter1=new google.maps.LatLng(25,70);
-        var input=document.getElementById('rec');
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-        function initialize() {
-            var mapOptions = {
-                center: MyCenter,
-                zoom: 8,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-
-            };
-            var map = new google.maps.Map(document.getElementById("map_canvas"),
-                mapOptions);
-
-            var marker=new google.maps.Marker({
-                position: MyCenter,
-                animation: google.maps.Animation.BOUNCE
-
-            });
-            var marker1=new google.maps.Marker({
-                position: MyCenter1,
-                animation: google.maps.Animation.BOUNCE
-
-            });
-            marker.setMap(map);
-            marker1.setMap(map);
-
-        }
-        google.maps.event.addDomListener(window,'load',initialize);
-    </script>
 
 
+    <section class="page-section-ptb pb-30 xs-pb-60 story-slider"><div class="container" id="res"  >
+            <section class="row mb-50 xs-mb-30" style="display: none">
+                <div class="col-lg-4 col-md-4 col-sm-6 xs-mb-30">
+                    <div class="story-item">
+                        <div class="story-details text-center">
+                            <div class="about-des mt-30"><img src="" width="300" height="200"></div>
+                            <h5 class="title divider-3"></h5>
+                            <div class="about-des mt-30"></div>
+                            <div class="about-des mt-30"></div>
+                            <div class="about-des mt-30"><a  href="" ></a></div>
+                        </div>
+                    </div>
+                </div>
 
-    <body onload="initialize()">
-
-    </body>
-
-
-
-
-
-
-
-
-
-
-    <div id="map_canvas" style="width:35%; height:35%"></div>
-
-
-
-
-
-
+            </section>
 
 
 
@@ -217,13 +171,14 @@
         $("#lieu").keyup(function () {
             // récuperation de valeur
             var input=$("#lieu").val();
+            var image='{{ asset('images/') }}'
             //requete
             $.ajax({
                 url:"{{ path('read') }}",
                 type: "POST",
                 data:{'lieu':input },
                 success:function (data) {
-                    $("#f").html("<section class='page-section-ptb pb-30 xs-pb-60 story-slider'><div class='container' id='res'>"+
+                    $("#f").html("<section class='page-section-ptb pb-30 xs-pb-60 story-slider'><div class='container' id='res>"+
                     "<section class='row mb-50 xs-mb-30'>"+
                     " <div class='col-lg-4 col-md-4 col-sm-6 xs-mb-30'>"+
                     "<div class='story-item'>"+
@@ -249,9 +204,10 @@
                             " <div class='col-lg-4 col-md-4 col-sm-6 xs-mb-30'>"+
                             "<div class='story-item'>"+
                             "<div class='story-details text-center'>"+
-                            "<h5 >+el.lieu+</h5>"+
-                            "<div class='about-des mt-30'>+el.date|date('Y-m-d')+</div>"+
-                            "<div class='about-des mt-30'>+el.description+</div>"+
+                            "<img src='"+image+""+el.image+"' width='300' height='200'>"+
+                            "<h5 >"+el.lieu+"</h5>"+
+                            "<div class='about-des mt-30'>"+el.date+"</div>"+
+                            "<div class='about-des mt-30'>"+el.description+"</div>"+
                             "<div class='about-des mt-30'>"+
                             "<a></a>"+
                             "</div>"+
@@ -265,6 +221,64 @@
                     console.log(data);}});
         });
     </script>
+
+
+
+            <script>
+                $("#date").keyup(function () {
+                    // récuperation de valeur
+                    var monta=$("#date").val();
+                    alert(monta);
+                    var image='{{ asset('images/') }}'
+                    //requete
+                    $.ajax({
+                        url:"{{ path('read') }}",
+                        type: "POST",
+                        data:{'date':monta },
+                        success:function (data) {
+                            $("#f").html("<section class='page-section-ptb pb-30 xs-pb-60 story-slider'><div class='container' id='res>"+
+                                "<section class='row mb-50 xs-mb-30'>"+
+                                " <div class='col-lg-4 col-md-4 col-sm-6 xs-mb-30'>"+
+                                "<div class='story-item'>"+
+                                "<div class='story-details text-center'>"+
+                                "<h5 ></h5>"+
+                                "<div class='about-des mt-30'></div>"+
+                                "<div class='about-des mt-30'></div>"+
+                                "<div class='about-des mt-30'>"+
+                                "<a></a>"+
+                                "</div>"+
+                                "</div>"+
+                                "</div>"+
+                                "</div>"+
+                                "</div>"+
+                                "</section>"+
+                                "</section>");
+
+                            $.each(data,function (res,el) {
+                                $("#f").hide();
+                                $("#res").append(
+                                    "<section class='page-section-ptb pb-30 xs-pb-60 story-slider'><div class='container' id='res'>"+
+                                    "<section class='row mb-50 xs-mb-30'>"+
+                                    " <div class='col-lg-4 col-md-4 col-sm-6 xs-mb-30'>"+
+                                    "<div class='story-item'>"+
+                                    "<div class='story-details text-center'>"+
+                                    "<img src='"+image+""+el.image+"' width='300' height='200'>"+
+                                    "<h5 >"+el.lieu+"</h5>"+
+                                    "<div class='about-des mt-30'>"+el.date+"</div>"+
+                                    "<div class='about-des mt-30'>"+el.description+"</div>"+
+                                    "<div class='about-des mt-30'>"+
+                                    "<a></a>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</div>"+
+                                    "</section>"+
+                                    "</section>");
+                            })
+                            console.log(data);}});
+                });
+            </script>
             <div class="navigation text-center">
                 {{ knp_pagination_render(listes) }}
             </div>

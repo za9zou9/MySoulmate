@@ -26,6 +26,15 @@ class EventSearch extends \Doctrine\ORM\EntityRepository
             ->setParameter('lieu',$lieu);
         return $qd->getResult();
     }
+
+    public function findByDateDql($datee)
+    {
+        $qd=$this->getEntityManager()
+            ->createQuery("SELECT v FROM EvenementBundle:Evenement v WHERE v.date=:datee ")
+            ->setParameter('date',$datee);
+        return $qd->getResult();
+    }
+
     public function testerdoublon($id,$idevenement)
     {
 

@@ -55,23 +55,30 @@ class EventsController extends Controller
         );
 
 
-
+        $lieu = $request->get('lieu');
+        $date= $request->get('date');
         if ($request->isXmlHttpRequest()) {
 
 
-            $lieu= $request->get('lieu');
-
             $event = $em->getRepository("EvenementBundle:Evenement")->findByLieuDql($lieu);
-            $serializer=new Serializer((array(new ObjectNormalizer())));
-            $data=$serializer->normalize($event);
-
+            $serializer = new Serializer((array(new ObjectNormalizer())));
+            $data = $serializer->normalize($event);
             return new JsonResponse($data);
+        }
+
+            if ($request->isXmlHttpRequest()) {
+
+
+            $venment = $em->getRepository("EvenementBundle:Evenement")->findByDateDql($date);
+            $serializer=new Serializer((array(new ObjectNormalizer())));
+            $data=$serializer->normalize($venment);
+                return new JsonResponse($data);
 
         }
 
 
         return $this->render('@Evenement/Events.html.twig', array(
-            'listes'=>$pagination
+            'listes'=>$pagination,
         ));
 
 

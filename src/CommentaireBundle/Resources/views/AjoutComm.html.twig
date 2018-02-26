@@ -24,7 +24,22 @@
         </section>
 
 
+ <section class="page-section-ptb"><div class="container"><div class="row" id="sec">
+                    <div class="col-sm-12 mb-30 text-center"><h2 class="title divider"></h2></div>
+             <div class="col-sm-12">
+                    <div class="accordion icon">
+                        <div class="acd-group"> <a href="#" class="acd-heading"></a>
+                            <div class="acd-des">
+                                        <a href=""></a>
 
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
@@ -32,7 +47,7 @@
 
 <form id="form_recherche" method="POST">
 
-        <section class="page-section-ptb"><div class="container"><div class="row">
+        <section class="page-section-ptb"><div class="container"><div class="row" id="f">
                     <div class="col-sm-12 mb-30 text-center"><h2 class="title divider">Commentaires</h2></div>
     {% for comm in commentaires  %}
 
@@ -74,7 +89,7 @@
         {{  form_widget(form.description) }}
                 <div class="col-sm-12">
 
-                    <a class="button  btn-lg btn-theme full-rounded animated right-icn"  onclick="saveData()" ><span>{{ form_widget(form.Commenter) }}<i class="glyph-icon flaticon-hearts" aria-hidden="false"></i></span></a>
+                    <a class="button  btn-lg btn-theme full-rounded animated right-icn" ><span>{{ form_widget(form.Commenter) }}<i class="glyph-icon flaticon-hearts" aria-hidden="false"></i></span></a>
                 </div>
     </div>>
 
@@ -82,7 +97,6 @@
 
 
 
-    {{ form_end(form) }}
 
 
 
@@ -100,39 +114,102 @@
         <!-- JQuery -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
-        function saveData() {
-
+        $("#Commenter").click(function () {
+            // récuperation de valeur
             var com= $('{{  form_widget(form.description) }}');
+            alert(com);
+
+            //requete
+            $.ajax({
+                url:"{{ path('create') }}",
+                type: "POST",
+                data:{'description':com },
+                success:function (data) {
+                    $("#f").html("<section class='page-section-ptb><div class='container'>"+
+                        "<div class='row' id='sec'>"+
+                        "<div class='col-sm-12 mb-30 text-center'>"+
+                        "<h2 class='title divider'>"+
+                        "</h2>"+
+                        "</div>"+
+                    "<div class='col-sm-12'>"+
+                        "<div class='accordion icon'>"+
+                        "<div class='acd-group'>"+
+                        "<a href='#' class='acd-heading'>"+
+                        "</a>"+
+                        "<div class='acd-des'>"+
+                        "<a href=''>"+
+                    "</a>"+
+                    "</div>"+
+                    "</div>"+
+                    "</div>"+
+                    "</div>"+
+                    "</div>"+
+                    "</div>"+
+                        "</section>"+
 
 
-                $.ajax({
-                    type: "POST",
-                    url: "{{ path('create') }}",
-                    data: {'com': com},
-                    success: function (data ) {
-                        console.log(data);
-                        $("#a").html("<table id='res' border='500'>" +
-                            " <td><h3>commentaire</h3></td> ");
-                        $.each(data, function (k, el) {
-                            $("#affichage").hide();
-                            $('#res').append(
-                                "<tr>" +
-
-                                "<td> <h5 class='entry-content'>" + el.description + "</h5> </td>"+
-                                + "</tr>"+"</table>"
-                            ) }
-
-                        );
-                    }
-
-                });
 
 
-
-        }
-
+                    $.each(data,function (res,el) {
+                        $("#f").hide();
+                        $("#sec").append(
+                            "<section class='page-section-ptb><div class='container'>"+
+                            "<div class='row' id='sec'>"+
+                            "<div class='col-sm-12 mb-30 text-center'>"+
+                            "<h2 class='title divider'>"+
+                            "</h2>"+
+                            "</div>"+
+                            "<div class='col-sm-12'>"+
+                            "<div class='accordion icon'>"+
+                            "<div class='acd-group'>"+
+                            "<a href='#' class='acd-heading'>"+
+                            "</a>"+
+                            "<div class='acd-des'>"+el.description+
+                            "<a href=''>"+
+                            "</a>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                            "</div>"+
+                            "</section>");
+                    }))
+                    console.log(data);}});
+        });
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    {{ form_end(form) }}
+
+
+
+
+
 
 
 

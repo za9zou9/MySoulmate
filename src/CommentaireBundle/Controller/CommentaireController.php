@@ -23,28 +23,43 @@ class CommentaireController extends Controller
 
 
     public function createAction(Request $request)
-    {
+    { $em=$this->getDoctrine()->getManager();
         $user = $this->getUser();
         $x=$user->getId();
-
         $commentaires=new Commentaire();
-        $em=$this->getDoctrine()->getManager();
+
         $moi=$em->getRepository(User::class)->find($x);
         $form=$this->createForm(AjoutType::class,$commentaires);
         $story=$em->getRepository(Stories::class)->find(1);
-
         $form->handleRequest($request);
+
         if ($form->isValid() && $form->isSubmitted()){
-$commentaires->setIdStorie($story);
+            $commentaires->setIdStorie($story);
             $commentaires->setId($moi);
             $em->persist($commentaires);
             $em->flush();
 
 
 
-
         }
         $coms=$em->getRepository(Commentaire::class)->findAll();
+        if ($request->isXmlHttpRequest()) {
+
+
+
+
+
+            $serializer=new Serializer((array(new ObjectNormalizer())));
+            $data=$serializer->normalize($coms);
+            return new JsonResponse($data);
+
+
+        }
+
+
+
+
+
 
         return $this->render('CommentaireBundle::AjoutComm.html.twig', array(
             'form'=>$form->createView(), 'commentaires'=>$coms,'utilisateur'=>$moi,'story'=>$story
