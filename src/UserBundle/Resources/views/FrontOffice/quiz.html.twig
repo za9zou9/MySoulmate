@@ -248,134 +248,177 @@
 
 
 
+<section class="login-form login-img dark-bg page-section-ptb100 pb-70" style="background: url({{ asset('images/pattern/04.png') }}) no-repeat 0 0; background-size: cover;">
 
-<section class="page-section-ptb text-white" style="background: url({{ asset('images/pattern/04.png') }}) no-repeat 0 0; background-size: cover;">
     <div class="container">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8">
-                <div class="step-form">
-
-
-                    <div class="stepwizard">
-                        <div class="stepwizard-row setup-panel">
-
-
-                            <div class="stepwizard-step">
-                                <a href="#step-3" class="btn btn-circle" >3 <span><i class="fa fa-check" ></i></span></a>
-                                <p>preferences</p>
-                            </div>
+        <form  method="post">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login-1-form clearfix text-center">
+                        <h4 class="title divider-3 text-white">SIGN IN</h4>
+                        <div class="login-1-social mt-50 mb-50 text-center clearfix">
+                            <ul class="list-inline text-capitalize">
+                                <li><a class="fb" href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                                <li><a class="gplus" href="#"><i class="fa fa-google-plus"></i>  google+</a></li>
+                            </ul>
                         </div>
-                    </div>
-
-                    <form method="post" class="text-center mt-30">
-
-                        <div class="row setup-content" id="step-3">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-offset-2 col-md-8 text-left text-capitalize text-white">
-                                        <div class="form-group">
 
 
-                                            <label class="title divider-3 mb-30">intéresse par </label>
+                        <div class="form-group">
+
+                            <label class="title divider-3 mb-30">intéresse par </label>
+
+                            <div class="col-sm-4">
 
 
-
-
-
-                                                <div class="col-sm-4">
-                                                    <div class="radio">
-                                                        <input name="reponse1" checked="checked" id="radio3" type="radio"value="femme">
-                                                        <label for="radio3">female</label>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-sm-4">
-                                                    <div class="radio">
-                                                        <input name="reponse1" id="radio4" type="radio" value="homme">
-                                                        <label for="radio4">male</label>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            <label class="title divider-3 mb-30">Fumeur </label>
-
-
-
-
-
-                                            <div class="col-sm-4">
-                                                <div class="radio">
-                                                    <input name="reponse2" checked="checked" id="radio5" type="radio"value="oui">
-                                                    <label for="radio5">Oui</label>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-4">
-                                                <div class="radio">
-                                                    <input name="reponse2" id="radio6" type="radio" value="non">
-                                                    <label for="radio6">Non</label>
-                                                </div>
-                                            </div>
-
-
-
-
-
-
-                                            <label class="title divider-3 mb-30">Alcool </label>
-
-
-
-
-
-                                            <div class="col-sm-4">
-                                                <div class="radio">
-                                                    <input name="reponse3" checked="checked" id="radio7" type="radio"value="oui">
-                                                    <label for="radio7">Oui</label>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-4">
-                                                <div class="radio">
-                                                    <input name="reponse3" id="radio8" type="radio" value="non">
-                                                    <label for="radio8">Non</label>
-                                                </div>
-                                            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                                            <div class="form-group mb-0 text-center">
-                                                <input type="submit" id="_submit" name="_submit" class="button btn-theme full-rounded btn btn-lg mt-20 animated right-icn"/>
-                                            </div>
-                                        </div>
-
-
-                                        </div>
-                                    </div>
+                                <div class="radio">
+                                    <input name="reponse1" checked="checked" id="radio3" type="radio"value="femme">
+                                    <label for="radio3">female</label>
                                 </div>
                             </div>
 
-                    </form>
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse1" id="radio4" type="radio" value="homme">
+                                    <label for="radio4">male</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="title divider-3 mb-30">Fumeur </label>
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse2" checked="checked" id="radio5" type="radio"value="oui">
+                                    <label for="radio5">Oui</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse2" id="radio6" type="radio" value="non">
+                                    <label for="radio6">Non</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label class="title divider-3 mb-30">Alcool </label>
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse3" checked="checked" id="radio7" type="radio"value="oui">
+                                    <label for="radio7">Oui</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse3" id="radio8" type="radio" value="non">
+                                    <label for="radio8">Non</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="title divider-3 mb-30">Vous viviez seul ? </label>
+
+                            <div class="col-sm-4">
+
+
+                                <div class="radio">
+                                    <input name="reponse4" checked="checked" id="radio9" type="radio"value="oui">
+                                    <label for="radio9">oui</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse4" id="radio10" type="radio" value="non">
+                                    <label for="radio10">non</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label class="title divider-3 mb-30"> Anmial domestique ? </label>
+
+                            <div class="col-sm-4">
+
+
+                                <div class="radio">
+                                    <input name="reponse5" checked="checked" id="radio11" type="radio"value="oui">
+                                    <label for="radio11">oui</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse5" id="radio12" type="radio" value="non">
+                                    <label for="radio12">non</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="title divider-3 mb-30"> Vous préférez ?  </label>
+
+                            <div class="col-sm-4">
+
+
+                                <div class="radio">
+                                    <input name="reponse6" checked="checked" id="radio13" type="radio"value="film">
+                                    <label for="radio13">film</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="radio">
+                                    <input name="reponse6" id="radio14" type="radio" value="série">
+                                    <label for="radio14">série</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <input type="submit" id="_submit" name="_submit" value="Envoyer" class="button  btn-lg btn-theme full-rounded animated right-icn" />
+
+
+
+                        <div class="section-field mt-20 text-center text-white">
+                            <p class="lead mb-0">Don’t have an account? <a class="text-white" href="register.html"><u>Register now!</u> </a></p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
-
 
 </section>
 

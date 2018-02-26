@@ -33,10 +33,19 @@ class quizController extends Controller
             $quiz->setReponse1($request->get('reponse1'));
             $quiz->setReponse2($request->get('reponse2'));
             $quiz->setReponse3($request->get('reponse3'));
+            $quiz->setReponse4($request->get('reponse4'));
+            $quiz->setReponse5($request->get('reponse5'));
+            $quiz->setReponse6($request->get('reponse6'));
+
+
+
             $quiz->setId($user);
             $em->persist($quiz);
             $em->flush();
 
+
+            $idquiz = $quiz->getIdquiz();
+            $em->getRepository("UserBundle:User")->updateIdQuiz($idquiz,$user);
 
         }
 
