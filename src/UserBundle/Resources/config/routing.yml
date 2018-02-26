@@ -10,3 +10,14 @@ quiz:
     path:     /ajoutQuiz
     defaults: { _controller: UserBundle:quiz:ajouterQuiz }
 
+packChoix:
+        path:     /packChoix
+        defaults: { _controller: UserBundle:pack:packChoix }
+
+packChoix_pays:
+        path:     /packChoix_pays
+        defaults: { _controller: UserBundle:pack:packChoixPays }
+
+AjouterMesPack:
+        path:     /AjouterMesPack/{idPack}
+        defaults: { _controller: UserBundle:pack:ajouterMesPack }

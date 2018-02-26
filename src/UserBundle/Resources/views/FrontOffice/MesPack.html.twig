@@ -1,0 +1,152 @@
+
+
+
+
+{% extends '::base2.html.twig' %}
+
+
+
+
+
+{% block body %}
+
+
+
+
+
+    <body>
+
+    <div class="gla_page_title gla_image_bck gla_wht_txt" data-color="#282828">
+
+
+
+        <div class="container text-left">
+            <div class="row">
+
+                <div class="col-md-8">
+                    <h1 class="gla_h1_title">Mes Packs</h1>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <section id="gla_content" class="gla_content">
+
+
+
+
+
+        <!-- section -->
+        <section class="gla_section">
+            <div class="container">
+
+
+                <div class="gla_shop_header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            Showing 1–10 of 24 results
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <select name="type">
+                                <option value="" selected="selected">Sort By</option>
+                                <option value="">What's new</option>
+                                <option value="">Price high to low</option>
+                                <option value="">Price low to high</option>
+                            </select>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="container text-center">
+                    <p><img src="{{ asset('images1/animations/ourwedding_gold_wh.gif') }}" height="100" alt=""></p>
+
+                    <div class="row text-center">
+
+                        {% for Pack in Pack %}
+
+                            <form  method="POST"  action="{{ path('SupprimerMesPack',{'idPack':Pack.idpack}) }}">
+                                <div class="col-md-4 gla_round_block" id=" resultat">
+                                    <div class="gla_round_im gla_image_bck" data-image="{{ asset('images1/wedding/ian_kelsey/600x600/') }}{{ Pack[1] }}"></div>
+                                    <h3>{{ Pack.idpack  }}</h3>
+                                    <p>Pack.idpack<br>
+                                        fer9et boudinar chanteur<br>
+                                        Menu : Entrée , 3ché , Dessert<br>
+                                        Bouquet qualitée metwasta<br>
+                                        {{ Pack.prixpack }} </p>
+                                    <input type="submit" value="Supprimer de mes Pack" class="awe-btn awe-btn-13">
+
+                                    <input id="lat" value="{{ Pack.lat }}" hidden>
+                                    <input id="long" value="{{ Pack.long }}" hidden>
+                                </div>
+
+                            </form>
+                        {% endfor %}
+
+                        {% block container %}
+                            <div id="map-canvas" style="width: 1000px; height: 400px"></div>
+                        {% endblock %}
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- row end -->
+
+            <nav class="gla_blog_pag">
+                <ul class="pagination">
+                    <li><a href="#"><i class="ti ti-angle-left"></i></a></li>
+                    <li class="active" ><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#"><i class="ti ti-angle-right"></i></a></li>
+                </ul>
+            </nav>
+
+            </div>
+            <!-- container end -->
+
+
+
+            <div id="googleMap" style="width: 500px;height: 380px;"></div>
+
+
+
+
+
+        </section>
+        <!-- section end -->
+
+
+
+
+
+
+
+
+    </section>
+
+    <!-- JQuery -->
+    <script src="{{ asset('js1/jquery-3.2.1.min.js') }}" ></script>
+
+
+    </body>
+
+    </html>
+
+
+
+{% endblock %}

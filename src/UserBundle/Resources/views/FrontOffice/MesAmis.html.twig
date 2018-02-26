@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/cupid-love-dating-website-html5-template/step.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jan 2018 10:38:55 GMT -->
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/cupid-love-dating-website-html5-template/profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jan 2018 10:34:47 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +9,9 @@
     <meta name="description" content="Cupid Love - Dating HTML5 Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Free Minds</title>
+    <title>Cupid Love Dating HTML5 Template</title>
 
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
 
     <!-- bootstrap -->
@@ -20,11 +20,14 @@
     <!-- mega menu -->
     <link href="{{ asset('css/mega-menu/mega_menu.css') }}" rel="stylesheet" type="text/css" />
 
-    <!-- font-awesome -->
+    <!-- font awesome -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Flaticon -->
     <link href="{{ asset('css/flaticon.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- owl-carousel -->
+    <link href="{{ asset('css/owl-carousel/owl.carousel.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- General style -->
     <link href="{{ asset('css/general.css') }}" rel="stylesheet" type="text/css" />
@@ -32,20 +35,21 @@
     <!-- main style -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
 
-
-
-
     <!-- Style customizer -->
     <link rel="stylesheet" type="text/css" href="#" data-style="styles" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style-customizer.css') }}" />
 
 </head>
 
-
 <body>
 
-
-
+<!--=================================
+ preloader -->
+<div id="preloader">
+    <div class="clear-loading loading-effect"><img src="{{ asset('images/loading.gif') }}" alt=""></div>
+</div>
+<!--=================================
+header -->
 
 <header id="header" class="dark">
     <div class="topbar">
@@ -54,8 +58,8 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="topbar-left text-left">
                         <ul class="list-inline">
-                            <li><a href="mailto:support@website.com"><i class="fa fa-envelope-o"> </i> Freeminds@gmail.com </a></li>
-                            <li><a href="tel:(007)1234567890"><i class="fa fa-phone"></i> (216) 56 042 044 </a></li>
+                            <li><a href="mailto:support@website.com"><i class="fa fa-envelope-o"> </i> support@website.com </a></li>
+                            <li><a href="tel:(007)1234567890"><i class="fa fa-phone"></i> (007) 123 456 7890 </a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,8 +72,8 @@
                             <li class="social-dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
                         </ul>
                         <ul class="list-inline text-uppercase top-menu">
-                            <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
-                            <li><a href="{{ path('fos_user_security_login') }}">Se Connecter</a></li>
+                            <li><a href="register.html">Inscription</a></li>
+                            <li><a href="login.html">Se connecter</a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,15 +102,15 @@
                                 <!-- active class -->
 
 
-                                <li><a href="index-default.html">Accueil</a></li>
+                                <li><a href="{{ path('user_homepage') }}">Accueil</a></li>
 
 
 
-                                <li><a href="profile.html">Tous les utilisateurs </a></li>
+                                <li><a href="{{ path('profile') }}">Les Profils compatible </a></li>
 
 
 
-                                <li><a href="stories.html">Nos success story</a></li>
+                                <li><a href="{{ path('AfficherMesAmis') }}">Mes Amis</a></li>
 
 
 
@@ -217,19 +221,23 @@
 </header>
 
 <!--=================================
- inner-intro-->
+ header -->
 
-<section class="inner-intro bg bg-fixed bg-overlay-black-60" style="background-image:url({{ asset('images/bg/inner-bg-1.jpg') }});">
+
+<!--=================================
+ banner -->
+
+<section class="inner-intro bg bg-fixed bg-overlay-black-60" style="background-image:url({{ asset('images/bg/inner-bg-1.jpg)') }} ">
     <div class="container">
         <div class="row intro-title text-center">
             <div class="col-sm-12">
-                <div class="section-title"><h1 class="pos-r divider">step 1 <span class="sub-title">step 1</span></h1></div>
+                <div class="section-title"><h1 class="pos-r divider">profile <span class="sub-title">profile</span></h1></div>
             </div>
             <div class="col-sm-12 mt-70">
                 <ul class="page-breadcrumb">
                     <li><a href="index-default.html"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-double-right"></i></li>
-                    <li><a href="step.html">Pages</a> <i class="fa fa-angle-double-right"></i></li>
-                    <li><span>Step</span> </li>
+                    <li><a href="profile.html">Profile</a> <i class="fa fa-angle-double-right"></i></li>
+                    <li><span>Profile</span> </li>
                 </ul>
             </div>
         </div>
@@ -237,210 +245,111 @@
     </div>
 </section>
 
-<!--=================================
- inner-intro-->
-
 
 <!--=================================
- login-->
+ banner -->
 
 
+<!--=================================
+ Page Section -->
 
-
-
-<section class="login-form login-img dark-bg page-section-ptb100 pb-70" style="background: url({{ asset('images/pattern/04.png') }}) no-repeat 0 0; background-size: cover;">
-
+<section class="page-section-ptb profile-slider">
     <div class="container">
-        <form  method="post">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="login-1-form clearfix text-center">
-                        <h4 class="title divider-3 text-white">SIGN IN</h4>
-                        <div class="login-1-social mt-50 mb-50 text-center clearfix">
-                            <ul class="list-inline text-capitalize">
-                                <li><a class="fb" href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                                <li><a class="gplus" href="#"><i class="fa fa-google-plus"></i>  google+</a></li>
-                            </ul>
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label class="title divider-3 mb-30">intéresse par </label>
-
-                            <div class="col-sm-4">
-
-
-                                <div class="radio">
-                                    <input name="reponse1" checked="checked" id="radio3" type="radio"value="femme">
-                                    <label for="radio3">female</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse1" id="radio4" type="radio" value="homme">
-                                    <label for="radio4">male</label>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="title divider-3 mb-30">Fumeur </label>
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse2" checked="checked" id="radio5" type="radio"value="oui">
-                                    <label for="radio5">Oui</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse2" id="radio6" type="radio" value="non">
-                                    <label for="radio6">Non</label>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="form-group">
-
-                            <label class="title divider-3 mb-30">Alcool </label>
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse3" checked="checked" id="radio7" type="radio"value="oui">
-                                    <label for="radio7">Oui</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse3" id="radio8" type="radio" value="non">
-                                    <label for="radio8">Non</label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label class="title divider-3 mb-30">Vous viviez seul ? </label>
-
-                            <div class="col-sm-4">
-
-
-                                <div class="radio">
-                                    <input name="reponse4" checked="checked" id="radio9" type="radio"value="oui">
-                                    <label for="radio9">oui</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse4" id="radio10" type="radio" value="non">
-                                    <label for="radio10">non</label>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="form-group">
-
-                            <label class="title divider-3 mb-30"> Anmial domestique ? </label>
-
-                            <div class="col-sm-4">
-
-
-                                <div class="radio">
-                                    <input name="reponse5" checked="checked" id="radio11" type="radio"value="oui">
-                                    <label for="radio11">oui</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse5" id="radio12" type="radio" value="non">
-                                    <label for="radio12">non</label>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label class="title divider-3 mb-30"> Vous préférez ?  </label>
-
-                            <div class="col-sm-4">
-
-
-                                <div class="radio">
-                                    <input name="reponse6" checked="checked" id="radio13" type="radio"value="film">
-                                    <label for="radio13">film</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-sm-4">
-                                <div class="radio">
-                                    <input name="reponse6" id="radio14" type="radio" value="série">
-                                    <label for="radio14">série</label>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-
-                        <input type="submit" id="_submit" name="_submit" value="Envoyer" class="button  btn-lg btn-theme full-rounded animated right-icn" />
-
-
-
-                        <div class="section-field mt-20 text-center text-white">
-                            <p class="lead mb-0">Don’t have an account? <a class="text-white" href="register.html"><u>Register now!</u> </a></p>
-                        </div>
-
-                    </div>
-                </div>
+        <div class="row mb-50 xs-mb-30">
+            <div class="col-sm-12 text-center">
+                <h2 class="title divider">Profils compatibles</h2>
             </div>
-        </form>
-    </div>
+        </div>
+        <div class="row">
 
+            <form action="{{ path('packChoix') }}" method="post" id="form_recherche">
+                <div class="col-md-6 text-left">
+                    <label>Recherche  </label>
+                    <input type="text" class="Password" id="pseudo" name="pseudo" placeholder="Pseudo" required="required" />
+                </div>
+
+            </form>
+
+            {% for profile in Profil %}
+                <form  method="POST"  action="{{ path('SupprimerMesAmis',{'id':profile.id}) }}">
+                    <div class="col-sm-3 xs-mb-30">
+                        <a href="profile-details.html" class="profile-item">
+                            <div class="profile-image clearfix"><img class="img-responsive" src="{{ asset('images/profile/02.jpg') }}" > </div>
+                            <div class="profile-details profile-text">
+                                <h5 class="title">{{ profile.username }}</h5>
+                                <span class="text-black">membre dans MySoulmate</span>
+                            </div>
+                        </a>
+                        <input type="submit" value="Supprimer de mes amis" class="awe-btn awe-btn-13">
+                    </div>
+                </form>
+
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 
 
 
 
-<!--=================================
- login-->
+
+
+
+
+
+
 
 
 
 <!--=================================
 footer -->
 
-<footer class="text-white text-center">
-    <div class="footer-widget">
+<footer class="page-section-pt text-white text-center" style="background: url({{ asset('images/pattern/04.png') }}) no-repeat 0 0; background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <div class="row mb-50">
+                    <div class="col-sm-12">
+                        <h2 class="title divider mb-30">Contact Us</h2>
+                        <p class="lead"> </p>
+                    </div>
+                </div>
+                <div class="row mb-50">
+                    <div class="col-sm-4">
+                        <div class="address-block">
+                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                            <a href="mailto:somemail@mail.com">FreeMinds@esprit.tn</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="address-block">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <address>
+                                Esprit<br>
+                                El ghazela
+                            </address>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="address-block">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <a href="tel:+000123456789">+216 56 042 044</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-widget mt-50">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
                     <div class="footer-logo mb-20">
-                        <img class="img-center" src="images/footer-logo.png" alt="">
+                        <img class="img-center" src="{{ asset('images/footer-logo.png') }}" alt="">
                     </div>
 
                     <div class="social-icons color-hover mb-10">
@@ -484,10 +393,6 @@ Color Customizer -->
             <li class="skin-light-tomato" title="light-tomato" data-style="skin-light-tomato"></li>
             <li class="skin-pacific-blue" title="pacific-blue" data-style="skin-pacific-blue"></li>
         </ul>
-        <ul class="resetAll clearfix">
-            <li><a target="_blank" class="button" href="#"><span>Purchase Now</span></a></li>
-            <li><a class="button-reset button" href="#"><span>Reset All</span></a></li>
-        </ul>
     </div>
 </div>
 
@@ -496,25 +401,99 @@ Color Customizer -->
 <!--=================================
  jquery -->
 
+
 <!-- jquery  -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 
 <!-- bootstrap -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 <!-- appear -->
-<script type="text/javascript" src="js/jquery.appear.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script>
 
 <!-- Menu -->
-<script type="text/javascript" src="js/mega-menu/mega_menu.js"></script>
+<script type="text/javascript" src="{{ asset('js/mega-menu/mega_menu.js') }}"></script>
+
+<!-- owl-carousel -->
+<script type="text/javascript" src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
 
 <!-- style customizer  -->
-<script type="text/javascript" src="js/style-customizer.js"></script>
+<script type="text/javascript" src="{{ asset('js/style-customizer.js') }}"></script>
 
 <!-- custom -->
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+
+
+
+<script>
+
+
+
+    $(document).ready(function() {
+
+
+        $("#form_recherche").keyup(function(){
+
+            var pseudo =$("#pseudo").val();
+
+            var image = '{{ asset('images1/wedding/ian_kelsey/600x600/') }}';
+
+            $.ajax({
+                url : "{{ path('packChoix') }}",
+                type : "POST", // Le type de la requête HTTP, ici devenu POST
+                data : {'pseudo':pseudo}, // On fait passer nos variables, exactement comme en GET, au script more_com.php
+
+                success : function(data){ // code_html contient le HTML renvoyé
+                    console.log(data);
+                    $("#aja").html("  <div class='row text-center' id = 'res'>" +
+                        "<div class='col-md-4 gla_round_block'  >"+
+                        "<form  method='POST'>"+
+                        "<div class='gla_round_im gla_image_bck' data-image='' >"+
+                        "<img>"+
+                        "<h3>          </h3>"+
+                        "<p>          </p>"+
+                        "</div>"+
+                        "</form>"+
+                        "</div>"+
+                        "</div>");
+                    $.each(data,function (res,el) {
+
+                        $("#f").hide();
+
+
+
+                        $("#res").append(
+                            "<div " +
+                            "class='col-md-4 gla_round_block'  >"+
+                            "<form  method='POST' action=''>"+
+                            "<div class='gla_round_im gla_image_bck' data-image= '"+image+""+el.image+ "'>"+
+                            "<img src='"+image+""+el.image+ "'>"+
+                            "<h3>" +el.idpack+ "</h3>"+
+                            "<p>"+el.prixpack+"</p>"+
+
+                            "</div>"+
+                            "<input type='submit' value='ajouter' class='awe-btn awe-btn-13'>"+
+                            "</form>"+
+                            "</div>"
+                        );
+
+                    });
+
+
+                },
+
+                error : function(){
+                    alert('La requête n\'a pas abouti');
+                }
+            });
+
+        });
+    });
+
+
+</script>
 
 </body>
 
-<!-- Mirrored from themes.potenzaglobalsolutions.com/html/cupid-love-dating-website-html5-template/step.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jan 2018 10:38:59 GMT -->
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/cupid-love-dating-website-html5-template/profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jan 2018 10:35:41 GMT -->
 </html>
