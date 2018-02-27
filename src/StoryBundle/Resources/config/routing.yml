@@ -1,17 +1,17 @@
 story_homepage:
     path:     /
     defaults: { _controller: StoryBundle:Default:index }
-creat:
+ajout:
     path:     /ajouter
     defaults: { _controller: StoryBundle:stories:create}
-read:
+aff:
     path:     /afficher
     defaults: { _controller: StoryBundle:stories:read}
-delete:
+supp:
     path:     /supprimer/{idstorie}
     defaults: { _controller: StoryBundle:stories:delete}
 
-modifier:
+modif:
     path:     /update/{idstorie}
     defaults: { _controller: StoryBundle:stories:modifier}
 
