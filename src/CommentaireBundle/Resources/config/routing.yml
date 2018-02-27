@@ -1,5 +1,5 @@
 commentaire_homepage:
-    path:     /
+    path:     /b
     defaults: { _controller: CommentaireBundle:Default:index }
 create:
     path:     /Commenter

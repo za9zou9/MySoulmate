@@ -1,5 +1,5 @@
 evenement_homepage:
-    path:     /
+    path:     /a
     defaults: { _controller: EvenementBundle:Default:index }
 read:
     path:     /lstevents

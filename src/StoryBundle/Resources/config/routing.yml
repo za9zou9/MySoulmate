@@ -15,7 +15,11 @@ modifier:
     path:     /modifier/{idstorie}
     defaults: { _controller: StoryBundle:stories:modifier}
 
-
 recherche:
     path:     /recherche
     defaults: { _controller: StoryBundle:stories:recherche}
+
+rech:
+    path:     /re
+    defaults: { _controller: StoryBundle:stories:recherche}
+
