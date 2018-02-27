@@ -1,7 +1,7 @@
 story_homepage:
     path:     /
     defaults: { _controller: StoryBundle:Default:index }
-create:
+creat:
     path:     /ajoutstory
     defaults: { _controller: StoryBundle:stories:create}
 read:
@@ -15,11 +15,9 @@ modifier:
     path:     /modifier/{idstorie}
     defaults: { _controller: StoryBundle:stories:modifier}
 
-recherche:
-    path:     /recherche
-    defaults: { _controller: StoryBundle:stories:recherche}
 
-rech:
+
+recherche:
     path:     /re
     defaults: { _controller: StoryBundle:stories:recherche}
 
