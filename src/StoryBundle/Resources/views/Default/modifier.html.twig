@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}MySoulmate{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+
+
+    <label>Description </label>
+
+    {{ form_widget(form.description) }}
+
+
+
+    {{ form_end(form) }}
+
+{% endblock %}

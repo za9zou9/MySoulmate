@@ -63,10 +63,10 @@
                         <h5 class="title divider-3">{{ story.titre }}</h5>
                         <div class="about-des mt-30">{{ story.description }}</div>
                         {% if story.id==users %}
-                            <a HREF=" {{ path('delete',{'idstorie':story.idstorie}) }} " >Supprimer</a>
-                            <a HREF=" {{ path('modifier',{'idstorie':story.idstorie}) }} " >modifier</a>
+                            <a HREF=" {{ path('Supp',{'idstorie':story.idstorie}) }} " >Supprimer</a>
+                            <a HREF=" {{ path('modif',{'idstorie':story.idstorie}) }} " >modifier</a>
 
-                            {{ twitterButton()}}
+
 
                         {% endif %}
 

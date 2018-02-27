@@ -9,7 +9,12 @@
 namespace StoryBundle\Form;
 
 
-class hhh
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class hhh extends AbstractType
 {
     /**
      * {@inheritdoc}
