@@ -23,8 +23,6 @@ modif:
     defaults: { _controller: StoryBundle:stories:modifier}
 
 
-
-recherche:
-    path:     /re
+recherches:
+    path:     /rech
     defaults: { _controller: StoryBundle:stories:recherche}
-

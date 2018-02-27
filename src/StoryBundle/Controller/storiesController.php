@@ -90,7 +90,7 @@ class storiesController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($story);
             $em->flush();
-            return  $this->redirectToRoute('read');
+            return  $this->redirectToRoute('afficher');
 
         }
 

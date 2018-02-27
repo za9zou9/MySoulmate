@@ -220,7 +220,7 @@
                 var image = '{{ asset('images/blog/') }}';
 
                 $.ajax({
-                    url : "{{ path('recherche') }}",
+                    url : "{{ path('recherches') }}",
                     type : "POST", // Le type de la requête HTTP, ici devenu POST
                     data : {'titre':titre}, // On fait passer nos variables, exactement comme en GET, au script more_com.php
 
