@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}MySoulmte{% endblock %}
+
+{% block body %}
+    <h1>Stories</h1>
+    {{ form_start(form) }}
+    <div >
+
+        <label>image</label>
+        <div>
+
+            <input type="file" class ="file_1" id="image" name="image">
+        </div>
+
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

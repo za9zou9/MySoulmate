@@ -1,0 +1,21 @@
+story_homepage:
+    path:     /
+    defaults: { _controller: StoryBundle:Default:index }
+create:
+    path:     /ajoutstory
+    defaults: { _controller: StoryBundle:stories:create}
+read:
+    path:     /readstory
+    defaults: { _controller: StoryBundle:stories:read}
+delete:
+    path:     /delete/{idstorie}
+    defaults: { _controller: StoryBundle:stories:delete}
+
+modifier:
+    path:     /modifier/{idstorie}
+    defaults: { _controller: StoryBundle:stories:modifier}
+
+
+recherche:
+    path:     /recherche
+    defaults: { _controller: StoryBundle:stories:recherche}
