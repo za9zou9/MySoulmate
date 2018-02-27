@@ -65,6 +65,8 @@
                         {% if story.id==users %}
                             <a HREF=" {{ path('Supp',{'idstorie':story.idstorie}) }} " >Supprimer</a>
                             <a HREF=" {{ path('modif',{'idstorie':story.idstorie}) }} " >modifier</a>
+                            <br>
+                            {{ twitterButton()}}
 
 
 
@@ -79,6 +81,13 @@
 
 
     </section>
+
+    </html>
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(stories) }}
+    </div>
+
 
     <!--=================================
      page-section -->
@@ -271,6 +280,6 @@
 
 
     <!-- Mirrored from themes.potenzaglobalsolutions.com/html/cupid-love-dating-website-html5-template/stories.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Jan 2018 10:38:40 GMT -->
-    </html>
+
 
 {% endblock  %}

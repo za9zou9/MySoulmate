@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Serializer;
 class storiesController extends Controller
 {
 
-    public function readAction()
+    public function readAction(Request $request)
     { $user=$this->getUser();
         $id=$user->getId();
 
@@ -26,8 +26,14 @@ class storiesController extends Controller
         $moi=$em->getRepository(User::class)->find($id);
 
         $story=$em->getRepository(Stories::class)->findAll();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $story, /* query NOT result */
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit',2 )
+        );
         return $this->render('StoryBundle::Menu1.html.twig', array(
-            'stories'=>$story,'users'=>$moi
+            'stories'=>$pagination,'users'=>$moi
         ));
 
     }
@@ -72,7 +78,7 @@ class storiesController extends Controller
         $story=$em->getRepository(Stories::class)->find($idstorie);
         $em->remove($story);
         $em->flush();
-        return $this->readAction();
+        return $this->redirectToRoute('afficher');
 
 
     }
